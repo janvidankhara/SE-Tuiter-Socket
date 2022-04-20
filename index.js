@@ -11,7 +11,7 @@
 //                              },
 //                            });
 
-const io = require("socket.io")("https://loquacious-banoffee-3ca7fa.netlify.com", {
+const io = require("socket.io")("https://loquacious-banoffee-3ca7fa.netlify.app", {
     cors: {
       origin: "https://jazzy-bonbon-7f0eba.netlify.app",
     },
