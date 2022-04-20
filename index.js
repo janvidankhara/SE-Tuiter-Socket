@@ -11,7 +11,8 @@ const server = http.createServer(app);
 server.listen(8900);
 const io = socketio(server, {
     cors: {
-        origin: "https://jazzy-bonbon-7f0eba.netlify.app",
+        origin: "*",
+        methods: ['GET', 'POST'],
     },
     });
 
