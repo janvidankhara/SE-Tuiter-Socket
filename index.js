@@ -3,6 +3,10 @@ const express = require('express');
 const socketio = require('socket.io');
 const cors = require('cors');
 const app = express();
+app.use(cors({
+    credentials: true,
+    origin: "https://jazzy-bonbon-7f0eba.netlify.app"
+}));
 const server = http.createServer(app);
 server.listen(8900);
 const io = socketio(server, {
