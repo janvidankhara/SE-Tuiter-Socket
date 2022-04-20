@@ -1,22 +1,21 @@
-//const http = require('http');
-//const express = require('express');
-//const socketio = require('socket.io');
-//const cors = require('cors');
-//const app = express();
-//const server = http.createServer(app);
-//console.log(server);
-//const io = socketio(server, {
-//                              cors: {
-//                                origin: "http://localhost:3000",
-//                              },
-//                            });
-
-const io = require("socket.io")(8900, {
-"rejectUnauthorized": false,
+const http = require('http');
+const express = require('express');
+const socketio = require('socket.io');
+const cors = require('cors');
+const app = express();
+const server = http.createServer(app);
+server.listen(8900);
+const io = socketio(server, {
     cors: {
-      origin: "https://jazzy-bonbon-7f0eba.netlify.app",
+        origin: "https://jazzy-bonbon-7f0eba.netlify.app",
     },
-  });
+    });
+
+//const io = require("socket.io")(8900, {
+//    cors: {
+//      origin: "https://jazzy-bonbon-7f0eba.netlify.app",
+//    },
+//  });
 
   let users = []
   
