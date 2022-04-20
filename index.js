@@ -12,6 +12,7 @@
 //                            });
 
 const io = require("socket.io")(8900, {
+"rejectUnauthorized": false,
     cors: {
       origin: "https://jazzy-bonbon-7f0eba.netlify.app",
     },
