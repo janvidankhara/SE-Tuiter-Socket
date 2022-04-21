@@ -31,12 +31,24 @@
 //  });
 
 
+const CORS_fn = (req, res) => {
+    res.setHeader( "Access-Control-Allow-Origin"     , "*"    );
+    res.setHeader( "Access-Control-Allow-Credentials", "true" );
+    res.setHeader( "Access-Control-Allow-Methods"    , "*"    );
+    res.setHeader( "Access-Control-Allow-Headers"    , "*"    );
+    if ( req.method === "OPTIONS" ) {
+        res.writeHead(200);
+        res.end();
+        return;
+    }
+};
+
 
 
 const express = require('express');
 const serverPort = 8900;
 const app=express();
-const server = require('http').createServer(app);
+const server = require('https').createServer(app,CORS_fn);
 server.listen(serverPort);
 const io = require("socket.io")(server, {
     cors: {
