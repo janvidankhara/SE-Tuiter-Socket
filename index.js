@@ -48,7 +48,7 @@ const CORS_fn = (req, res) => {
 const express = require('express');
 const serverPort = 8900;
 const app=express();
-const server = require('https').createServer(app,CORS_fn);
+const server = require('http').createServer(app,CORS_fn);
 server.listen(serverPort);
 const io = require("socket.io")(server, {
     cors: {
