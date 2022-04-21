@@ -1,20 +1,38 @@
-//const http = require('http');
-//const express = require('express');
-//const socketio = require('socket.io');
-//const cors = require('cors');
-//const app = express();
-//app.use(cors({
-//    credentials: true,
-//    origin: "https://jazzy-bonbon-7f0eba.netlify.app"
-//}));
-//const server = http.createServer(app);
-//server.listen(8900);
-//const io = socketio(server, {
+//var fs = require('fs'),
+//express = require('express'),
+// socketio = require('socket.io'),
+// config = require('./config');
+//
+//var serverPort = config.port || 8900, // Listen port
+// secure = config.secure || false; // use HTTPS/SSL
+//
+//var app = express();
+//if (secure)
+//{
+// var options = {
+// key: fs.readFileSync(config.secure_key),
+// cert: fs.readFileSync(config.secure_cert)
+//};
+// var server = require('https').createServer(options, app);
+//} else
+//{
+// var server = require('http').createServer(app);
+//}
+//
+//server.listen(serverPort, function() {
+// var addr = server.address();
+// console.log(' app listening on ' + (secure ? 'https://' : 'http://') + addr.address + ':' + addr.port);
+//});
+//
+//var io = socketio(server, {
 //    cors: {
-//        origin: "*",
-//        methods: ['GET', 'POST'],
+//      origin: "https://jazzy-bonbon-7f0eba.netlify.app",
 //    },
-//    });
+//  });
+
+
+
+
 
 const io = require("socket.io")(8900, {
     cors: {
