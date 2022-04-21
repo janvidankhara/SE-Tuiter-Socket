@@ -33,8 +33,12 @@
 
 
 
-
-const io = require("socket.io")(8900, {
+const express = require('express');
+const serverPort = 8900;
+const app=express();
+const server = require('http').createServer(app);
+server.listen(serverPort);
+const io = require("socket.io")(server, {
     cors: {
       origin: "https://jazzy-bonbon-7f0eba.netlify.app",
     },
