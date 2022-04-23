@@ -1,60 +1,49 @@
-//var fs = require('fs'),
-//express = require('express'),
-// socketio = require('socket.io'),
-// config = require('./config');
-//
-//var serverPort = config.port || 8900, // Listen port
-// secure = config.secure || false; // use HTTPS/SSL
-//
-//var app = express();
-//if (secure)
-//{
-// var options = {
-// key: fs.readFileSync(config.secure_key),
-// cert: fs.readFileSync(config.secure_cert)
-//};
-// var server = require('https').createServer(options, app);
-//} else
-//{
-// var server = require('http').createServer(app);
-//}
-//
-//server.listen(serverPort, function() {
-// var addr = server.address();
-// console.log(' app listening on ' + (secure ? 'https://' : 'http://') + addr.address + ':' + addr.port);
-//});
-//
-//var io = socketio(server, {
-//    cors: {
-//      origin: "https://jazzy-bonbon-7f0eba.netlify.app",
-//    },
-//  });
+var fs = require('fs'),
+express = require('express'),
+ socketio = require('socket.io'),
+ config = require('./config');
 
+var serverPort = config.port || 8900, // Listen port
+ secure = config.secure || false; // use HTTPS/SSL
 
-//const CORS_fn = (req, res) => {
-//    res.setHeader( "Access-Control-Allow-Origin"     , "*"    );
-//    res.setHeader( "Access-Control-Allow-Credentials", "true" );
-//    res.setHeader( "Access-Control-Allow-Methods"    , "*"    );
-//    res.setHeader( "Access-Control-Allow-Headers"    , "*"    );
-//    if ( req.method === "OPTIONS" ) {
-//        res.writeHead(200);
-//        res.end();
-//        return;
-//    }
-//};
+var app = express();
+if (secure)
+{
+ var options = {
+ key: fs.readFileSync(config.secure_key),
+ cert: fs.readFileSync(config.secure_cert)
+};
+ var server = require('https').createServer(options, app);
+} else
+{
+ var server = require('http').createServer(app);
+}
 
+server.listen(serverPort, function() {
+ var addr = server.address();
+ console.log(' app listening on ' + (secure ? 'https://' : 'http://') + addr.address + ':' + addr.port);
+});
 
-
-const express = require('express');
-const serverPort = 8900;
-const app=express();
-const server = require('https').createServer(app);
-server.listen(serverPort);
-const io = require("socket.io")(server, {
+var io = socketio(server, {
     cors: {
       origin: "https://jazzy-bonbon-7f0eba.netlify.app",
     },
   });
+
+
+
+
+//
+//const express = require('express');
+//const serverPort = 8900;
+//const app=express();
+//const server = require('https').createServer(app);
+//server.listen(serverPort);
+//const io = require("socket.io")(server, {
+//    cors: {
+//      origin: "https://jazzy-bonbon-7f0eba.netlify.app",
+//    },
+//  });
 
   let users = []
   
